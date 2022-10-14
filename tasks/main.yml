@@ -1,0 +1,7 @@
+- name: Include aspects_timesyncd tasks.
+  when:
+    - aspects_timesyncd_enabled
+    - ansible_lsb.codename == "bionic" or ansible_lsb.codename == "focal" or ansible_lsb.codename == "jammy" or ansible_lsb.codename == "buster"
+  include_tasks: init.yml
+  tags:
+  - aspects_timesyncd

@@ -1,0 +1,8 @@
+- name: "restart systemd-timesyncd"
+  systemd:
+    name: "systemd-timesyncd"
+    state: "restarted"
+    daemon_reload: "yes"
+    enabled: "yes"
+  tags:
+    - "aspects_timesyncd"

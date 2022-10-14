@@ -1,0 +1,22 @@
+# Ansible Managed
+{% if aspects_timesyncd_NTP is defined and aspects_timesyncd_NTP|length %}
+NTP={{ aspects_timesyncd_NTP }}
+{% endif %}
+{% if aspects_timesyncd_FallbackNTP is defined and aspects_timesyncd_FallbackNTP|length %}
+FallbackNTP={{ aspects_timesyncd_FallbackNTP }}
+{% endif %}
+{% if aspects_timesyncd_RootDistanceMaxSec is defined and aspects_timesyncd_RootDistanceMaxSec|length %}
+RootDistanceMaxSec={{ aspects_timesyncd_RootDistanceMaxSec }}
+{% endif %}
+{% if aspects_timesyncd_PollIntervalMinSec is defined and aspects_timesyncd_PollIntervalMinSec|length %}
+PollIntervalMinSec={{ aspects_timesyncd_PollIntervalMinSec }}
+{% endif %}
+{% if aspects_timesyncd_PollIntervalMaxSec is defined and aspects_timesyncd_PollIntervalMaxSec|length %}
+PollIntervalMaxSec={{ aspects_timesyncd_PollIntervalMaxSec }}
+{% endif %}
+{% if aspects_timesyncd_ConnectionRetrySec is defined and aspects_timesyncd_ConnectionRetrySec|length %}
+ConnectionRetrySec={{ aspects_timesyncd_ConnectionRetrySec }}
+{% endif %}
+{% if aspects_timesyncd_SaveIntervalSec is defined and aspects_timesyncd_SaveIntervalSec|length %}
+SaveIntervalSec={{ aspects_timesyncd_SaveIntervalSec }}
+{% endif %}

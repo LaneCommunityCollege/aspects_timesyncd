@@ -1,0 +1,10 @@
+- name: "Template /etc/systemd/timesyncd.conf.d/99-aspects_timesyncd.conf"
+  template:
+    src: "99-aspects_timesyncd.conf.j2"
+    dest: "/etc/systemd/timesyncd.conf.d/99-aspects_timesyncd.conf"
+    owner: "root"
+    group: "root"
+    mode: "644"
+  notify: "restart systemd-timesyncd"
+  tags:
+    - "aspects_timesyncd"
