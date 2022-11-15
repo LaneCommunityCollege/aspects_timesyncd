@@ -1,7 +1,12 @@
 - name: Include aspects_timesyncd tasks.
   when:
     - aspects_timesyncd_enabled
-    - ansible_lsb.codename == "bionic" or ansible_lsb.codename == "focal" or ansible_lsb.codename == "jammy" or ansible_lsb.codename == "buster"
+    - (ansible_lsb.codename is defined and ansible_lsb.codename == "bionic")
+      or (ansible_lsb.codename is defined and ansible_lsb.codename == "focal")
+      or (ansible_lsb.codename is defined and ansible_lsb.codename == "jammy")
+      or (ansible_lsb.codename is defined and ansible_lsb.codename == "bullseye") 
+      or (ansible_distribution == "OracleLinux" and ansible_distribution_major_version == "8") 
+      or (ansible_distribution == "OracleLinux" and ansible_distribution_major_version == "9")
   include_tasks: init.yml
   tags:
   - aspects_timesyncd

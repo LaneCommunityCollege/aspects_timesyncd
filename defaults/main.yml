@@ -1,1 +1,20 @@
 aspects_timesyncd_enabled: False
+aspects_packages_packages:
+  systemd-timesyncd:
+    state: "present"
+    Ubuntu:
+      2004: "systemd-timesyncd"
+      2204: "systemd-timesyncd"
+    Debian:
+      11: "systemd-timesyncd"
+    OracleLinux:
+      8: "systemd-timesyncd"
+  chrony:
+    state: "absent"
+    Ubuntu:
+      2004: "chrony"
+      2204: "chrony"
+    Debian:
+      11: "chrony"
+    OracleLinux:
+      8: "chrony"

@@ -12,8 +12,12 @@ galaxy_info:
         - jammy
     - name: Debian
       versions:
-        - 10
+        - 11
+    - name: OracleLinux
+      versions:
+        - 8
   galaxy_tags:
     - system
 
-dependencies: {}
+dependencies:
+  - { role: aspects_packages, when: aspects_packages_enabled }

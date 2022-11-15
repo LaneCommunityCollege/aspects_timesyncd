@@ -47,6 +47,32 @@ Default: Undefined.
 
 Set the value of the `SaveIntervalSec` parameter.
 
+### aspects_packages_packages
+When `aspects_packages_enabled`, install `systemd-timesyncd` and make sure `chrony` is not installed.
+
+Default:
+```yaml
+aspects_packages_packages:
+  systemd-timesyncd:
+    state: "present"
+    Ubuntu:
+      2004: "systemd-timesyncd"
+      2204: "systemd-timesyncd"
+    Debian:
+      11: "systemd-timesyncd"
+    OracleLinux:
+      8: "systemd-timesyncd"
+  chrony:
+    state: "absent"
+    Ubuntu:
+      2004: "chrony"
+      2204: "chrony"
+    Debian:
+      11: "chrony"
+    OracleLinux:
+      8: "chrony"
+```
+
 ## Example Playbook
 
 ```yaml
@@ -54,6 +80,7 @@ Set the value of the `SaveIntervalSec` parameter.
 - hosts:
   - test
   vars:
+    aspects_packages_enabled: True
     aspects_timesyncd_enabled: True
     aspects_timesyncd_NTP: "ntp.ubuntu.com 0.debian.pool.ntp.org"
     aspects_timesyncd_FallbackNTP: "1.debian.pool.ntp.org ntp.ubuntu.com"
